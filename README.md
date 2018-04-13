@@ -2,6 +2,10 @@
 
 Docker Symfony Skeleton - install your favorite Symfony 3/4 framework and get started.
 
+## Supported tags and respective `Dockerfile` links
+
+* `v1.0.1`, `latest` [Dockerfile](https://github.com/cawolf/docker-symfony-skeleton/blob/v1.0.1/Dockerfile)
+
 ## Usage
 
 1. create symfony application or use existing application, e.g.
@@ -26,3 +30,7 @@ Docker Symfony Skeleton - install your favorite Symfony 3/4 framework and get st
 6. create and run containers
 
         docker run -d -p 8000:80 foo
+
+## TODO
+
+* add `docker-compose.yml` template for production and development environment (with mounted app)
