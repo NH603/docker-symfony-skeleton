@@ -20,5 +20,6 @@ RUN mkdir -p /application
 COPY . /application
 WORKDIR /run
 
+# Expose ports and run
 EXPOSE 80 443
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
