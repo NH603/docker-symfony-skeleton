@@ -13,13 +13,9 @@ Docker Symfony Skeleton - install your favorite Symfony 3/4 framework and get st
         composer create-project symfony/skeleton foo
         cd foo
 
-2. add this repository as remote
+2. download this repository as ZIP
 
-        git remote add docker https://github.com/cawolf/docker-symfony-skeleton.git
-
-3. pull the necessary files
-
-        git pull docker master
+3. extract `Dockerfile` and the `docker` folder into your project
 
 4. tweak the config files
 
