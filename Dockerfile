@@ -2,7 +2,7 @@ FROM alpine:3.6
 
 # Install packages
 RUN apk --no-cache add php7 php7-fpm php7-cli php7-mysqli php7-json php7-openssl php7-curl \
-    php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-pdo \
+    php7-zlib php7-xml php7-simplexml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-pdo \
     php7-mysqli php7-tokenizer php7-mbstring php7-gd php7-session nginx supervisor curl
 
 # Configure nginx
@@ -18,8 +18,13 @@ COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Add application
 RUN mkdir -p /application
 COPY . /application
-WORKDIR /run
+
+# Fix privileges
+WORKDIR /application
+RUN chmod -R a+w var/ && \
+    bin/console cache:clear --env=prod
 
 # Expose ports and run
+WORKDIR /run
 EXPOSE 80 443
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
